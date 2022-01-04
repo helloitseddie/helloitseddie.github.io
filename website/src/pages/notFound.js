@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
 
 import Footer from "../components/footer";
 import GetWindow from "../components/getWindow";
@@ -42,12 +43,12 @@ const useStyles = makeStyles((theme) => ({
   },
   type: {
     color: theme.palette.common.gray,
-    fontSize: "1em",
+    fontSize: "1.5em",
     fontFamily: "Lato",
     fontWeight: 0,
   },
   divLineTitle: {
-    width: "100%",
+    width: "75%",
     color: theme.palette.common.blue,
     backgroundColor: theme.palette.common.blue,
     height: 1,
@@ -84,7 +85,7 @@ const NotFound = () => {
             />
             <Grid item style={{ textAlign: "center" }}>
               <Typography className={classes.typeTitle} component="p">
-                Services We Offer
+                Page Not Found
               </Typography>
             </Grid>
             <hr className={classes.divLineTitle} style={{ float: "left" }} />
@@ -93,64 +94,48 @@ const NotFound = () => {
             className={classes.servicesBox}
             style={{ textAlign: "center", alignItems: "center" }}
             display="flex"
-            flexDirection={width > 850 ? "row" : "column"}
+            flexDirection={"column"}
           >
-            <Grid item xs={5} style={{ textAlign: "center" }}>
-              <Typography className={classes.typeSubTitle} component="p">
-                Power
+            <Grid item>
+              <Typography className={classes.type} component="p">
+                It looks like we coulnd't find the page you were looking for.
+                Please try one of the links below:
               </Typography>
-              <hr className={classes.divLine} style={{ float: "center" }} />
               <br />
-              <Typography className={classes.type} component="p">
-                {" "}
-                - AC Power
-              </Typography>
-              <Typography className={classes.type} component="p">
-                {" "}
-                - Connectivity
-              </Typography>
-              <Typography className={classes.type} component="p">
-                {" "}
-                - DC Power
-              </Typography>
-              <Typography className={classes.type} component="p">
-                {" "}
-                - Power Stitching & Controls
-              </Typography>
-              <Typography className={classes.type} component="p">
-                {" "}
-                - Precision Cooling
-              </Typography>
-              <Typography className={classes.type} component="p">
-                {" "}
-                - Surge Protection
-              </Typography>
+              <br />
             </Grid>
-            <Box style={{ marginBottom: "4em" }}></Box>
-            <Grid item xs={5} style={{ textAlign: "center" }}>
-              <Typography className={classes.typeSubTitle} component="p">
-                Dehumidification
-              </Typography>
-              <hr className={classes.divLine} style={{ float: "center" }} />
-              <br />
-              <Typography className={classes.type} component="p">
-                {" "}
-                - Refrigeration-based dehumidifiers
-              </Typography>
-              <Typography className={classes.type} component="p">
-                {" "}
-                - Dedicated out-door infrastructure
-              </Typography>
-              <Typography className={classes.type} component="p">
-                {" "}
-                - Infrastructure Management & Monitoring
-              </Typography>
-              <Typography className={classes.type} component="p">
-                {" "}
-                - Racks & Integrated Cabinets
+            <Grid item>
+              <Typography className={classes.type} component={Link} to="/">
+                Home
               </Typography>
               <br />
+              <Typography className={classes.type} component={Link} to="/about">
+                About Us
+              </Typography>
               <br />
+              <Typography
+                className={classes.type}
+                component={Link}
+                to="/services"
+              >
+                Services
+              </Typography>
+              <br />
+              <Typography
+                className={classes.type}
+                component={Link}
+                to="/clients"
+              >
+                Clients
+              </Typography>
+              <br />
+              <Typography
+                className={classes.type}
+                component={Link}
+                to="/contact"
+              >
+                Contact Us
+              </Typography>
             </Grid>
           </Box>
         </Paper>

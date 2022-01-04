@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   text: {
     color: "white",
     fontFamily: "Lato",
-    fontSize: "0.8em",
+    fontSize: "1em",
     margin: 0,
   },
   tabContainer: {
@@ -28,7 +28,14 @@ export default function Footer(props) {
   const classes = useStyles();
   const { height } = GetWindow();
   const divRef = useRef();
-  const [offset, setOffset] = useState(height - 50);
+  const [offset, setOffset] = useState(height - 100);
+  const [scrollOffset, setScrollOffset] = useState(0);
+
+  useEffect(() => {
+    window.onscroll = () => {
+      setScrollOffset(window.pageYOffset);
+    };
+  }, []);
 
   useEffect(() => {
     if (divRef.current !== undefined) {
@@ -38,7 +45,7 @@ export default function Footer(props) {
           : divRef.current.offsetHeight + divRef.current.offsetTop
       );
     }
-  }, [divRef, height]);
+  }, [divRef, height, scrollOffset]);
 
   return (
     <React.Fragment>
@@ -54,8 +61,7 @@ export default function Footer(props) {
       >
         <Grid item xs={6} style={{ textAlign: "right", marginTop: "0.5em" }}>
           <Typography className={classes.text} component="p">
-            © Copyright - AC Engineering, Inc. All Rights Reserved | Developed
-            by Edward Briscoe
+            © Copyright - AC Engineering, Inc. All Rights Reserved
           </Typography>
         </Grid>
         <Grid

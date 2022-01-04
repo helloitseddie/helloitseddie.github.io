@@ -145,7 +145,7 @@ const Header = ({ container }) => {
           setValue(2);
         }
         break;
-      case "/mobiledatacenters":
+      case "/clients":
         if (value !== 3) {
           setValue(3);
         }
@@ -156,6 +156,7 @@ const Header = ({ container }) => {
         }
         break;
       default:
+        setValue(5);
         break;
     }
   }, [value, history]);
