@@ -12,7 +12,7 @@ import GetWindow from "../components/getWindow";
 import { getClients } from "../actions/clientsActions";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
-import background from "../assets/bgMDC.png";
+import background from "../assets/bg.png";
 
 const useStyles = makeStyles((theme) => ({
   articleContainer: {
@@ -81,7 +81,7 @@ const Clients = () => {
   const classes = useStyles();
   const { width } = GetWindow();
   let articleWidth = width > 800 ? "75%" : "100%";
-  let topMargin = width > 800 ? "8vh" : "12vh";
+  let topMargin = width > 800 ? "10vh" : "12vh";
 
   const [showSpinner, setShowSpinner] = useState(false);
   const [clients, setClients] = useState([]);

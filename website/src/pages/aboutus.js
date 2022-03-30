@@ -10,10 +10,11 @@ import Button from "@material-ui/core/Button";
 import Footer from "../components/footer";
 import GetWindow from "../components/getWindow";
 
-import background from "../assets/bgAbout.png";
+import background from "../assets/bg.png";
 import liebert from "../assets/liebert.png";
 import seresco from "../assets/seresco.png";
 import fauv from "../assets/fauv.png";
+import flexair from "../assets/flexair.png";
 
 const useStyles = makeStyles((theme) => ({
   articleContainer: {
@@ -97,16 +98,35 @@ const AboutUs = () => {
           <Box className={classes.aboutUsBox}>
             <Grid item>
               <Typography className={classes.type} component="p">
-                AC Engineering has over 28 years of continuous sales and design
-                experience in the critical application and solutions for data
-                centers. ACE is committed to provide integrated solutions for
-                mission critical applications ranging from the smallest server
-                room to the largest data center. In addition, ACE is able to
-                support its customers during and after the construction process,
+                AC Engineering Inc. has over 40 years of continuous sales and
+                design experience in South Florida involving critical
+                application and solutions for commercial and residential
+                buildings.
+              </Typography>
+              <br />
+            </Grid>
+            <Grid item>
+              <Typography className={classes.type} component="p">
+                AC Engineering Inc. is committed to providing integrated
+                solutions for mission critical applications involving precision
+                cooling and power support for data centers and healthcare
+                buildings, dehumidification for indoor pool environments, UV
+                lighting and indoor air quality solutions, and pre-fabricated
+                custom solutions for industrial-commercial rated HVAC and
+                electrical markets. In addition, AC Engineering Inc. is able to
+                support our customers during and after the construction process,
                 including all aspects of system procurement, start-up,
-                commissioning, monitoring and maintenance to ensure that these
-                systems work as designed, and adapt to the company’s needs. Some
-                of the products represented by AC Engineering are:
+                commissioning, monitoring, and maintenance to ensure that these
+                systems work as designed and adapt to the individual needs of
+                the end user.
+              </Typography>
+            </Grid>
+            <Grid item>
+              <br />
+              <Typography className={classes.type} component="p">
+                AC Engineering Inc. has vast experience and expertise in the
+                following product lines, as well as many others, and can be
+                counted on as your consultative partner for your next project:
               </Typography>
             </Grid>
           </Box>
@@ -125,50 +145,69 @@ const AboutUs = () => {
                 services. In this rapidly-changing business, Liebert provides
                 solutions to ensure the IT department is protected and always
                 running so that your business operates continuously and
-                seamlessly, with minimal or no downtime.
+                seamlessly, with minimal or no downtime, as is vital to the
+                operation of a data center.
               </Typography>
             </Grid>
           </Box>
           <Box className={classes.aboutUsBox}>
             <Grid item xs={5} style={{ textAlign: "center" }}>
-              <Button
-                target="_blank"
-                href="https://www.vertiv.com/en-us/products/brands/liebert/"
-              >
-                <img alt="liebert" src={seresco} className={classes.logo} />
+              <Button target="_blank" href="https://serescodehumidifiers.com/">
+                <img alt="seresco" src={seresco} className={classes.logo} />
               </Button>
             </Grid>
             <Grid item xs={5}>
               <Typography className={classes.brandName} component="p">
                 SERESCO builds the most advanced dehumidifiers in the world and
-                enjoys a reputation for quality, reliability and value. Seresco
+                enjoys a reputation for quality, reliability and value as the
+                industry experts in pool dehumidification systems. Seresco
                 provides an end-to-end solution including technologically
                 advanced and energy efficient products combined with their
                 WebSentry technology. WebSentry’s 24-7 factory performance
                 monitoring, secure remote trouble-shooting capabilities, and
-                email maintenance reminders for the lifetime of your equipment.
+                critical email notification alerts provide the user with peace
+                of mind for the lifetime of your equipment.
               </Typography>
             </Grid>
           </Box>
           <Box className={classes.aboutUsBox}>
             <Grid item xs={5} style={{ textAlign: "center" }}>
-              <Button
-                target="_blank"
-                href="https://www.vertiv.com/en-us/products/brands/liebert/"
-              >
-                <img alt="liebert" src={fauv} className={classes.logo} />
+              <Button target="_blank" href="https://www.freshaireuv.com/">
+                <img alt="freshair" src={fauv} className={classes.logo} />
               </Button>
             </Grid>
             <Grid item xs={5}>
               <Typography className={classes.brandName} component="p">
-                Fresh-Aire UV is recognized the world over as a leader in the
-                areas of UV light disinfection and indoor air quality. Our
-                products fight odors, reduce indoor air pollution, and provide
-                chemical-free air and surface disinfection. Fresh-Aire UV lights
-                are a safe and effective green technology. They save energy by
-                keeping HVAC equipment cleaner, allowing it to operate more
-                efficiently. This also reduces the need for toxic cleaning
-                chemicals.
+                Fresh-Aire UV is recognized worldwide as a leader in the
+                engineering discipline of UV light disinfection and indoor air
+                quality. Fresh Aire UV’s products fight odors, reduce indoor air
+                pollution, and provide chemical-free air and surface
+                disinfection. Fresh-Aire UV lights are a safe and effective
+                green technology. They save energy by keeping HVAC equipment
+                cleaner, which allows it to operate more efficiently and reduces
+                the need for toxic cleaning chemicals.
+              </Typography>
+            </Grid>
+          </Box>
+          <Box className={classes.aboutUsBox}>
+            <Grid item xs={5} style={{ textAlign: "center" }}>
+              <Button target="_blank" href="https://flexairinc.com/">
+                <img
+                  alt="flexair"
+                  src={flexair}
+                  className={classes.logo}
+                  style={{ width: "50%" }}
+                />
+              </Button>
+            </Grid>
+            <Grid item xs={5}>
+              <Typography className={classes.brandName} component="p">
+                With over 50 years of combined industry knowledge, Flex Air is
+                focused on delivering industry leading and energy-efficient,
+                high performance HVAC systems from custom air handling solutions
+                to modular systems, fluid pumping systems, and everything in
+                between. Every solution is meticulously engineered to meet and
+                exceed their customers’ expectations
               </Typography>
             </Grid>
           </Box>

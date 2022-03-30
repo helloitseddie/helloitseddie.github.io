@@ -9,13 +9,14 @@ import Button from "@material-ui/core/Button";
 import Footer from "../components/footer";
 import GetWindow from "../components/getWindow";
 
-import background from "../assets/bgHome.png";
+import background from "../assets/bg.png";
 import liebert from "../assets/liebert.png";
-import liebertg from "../assets/liebertg.png";
+// import liebertg from "../assets/liebertg.png";
 import seresco from "../assets/seresco.png";
-import serescog from "../assets/serescog.png";
+// import serescog from "../assets/serescog.png";
 import fauv from "../assets/fauv.png";
-import fauvg from "../assets/fauvg.png";
+// import fauvg from "../assets/fauvg.png";
+import flexair from "../assets/flexair.png";
 
 const useStyles = makeStyles((theme) => ({
   articleContainer: {
@@ -27,6 +28,16 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     verticalAlign: "center",
     float: "center",
+  },
+  aboutUsBox: {
+    marginTop: "5em",
+    marginRight: "2em",
+    marginLeft: "2em",
+    marginBottom: "3em",
+    justifyContent: "center",
+    alignItems: "center",
+    display: "flex",
+    flexWrap: "wrap",
   },
   brands: {
     margin: "auto",
@@ -88,6 +99,24 @@ const Home = () => {
           style={{ width: articleWidth }}
         >
           <Box style={{ marginBottom: "7em" }}></Box>
+          <Box className={classes.aboutUsBox}>
+            <hr className={classes.divLine} style={{ marginBottom: "1.5em" }} />
+            <Grid item>
+              <Typography className={classes.type} component="p">
+                AC Engineering Inc. has over 40 years of continuous sales and
+                design experience in South Florida involving critical
+                application and solutions for commercial and residential
+                buildings. Our talented sales engineers work closely with
+                engineers, contractors, and other professionals in the selection
+                and application of HVAC solutions for mission critical
+                applications involving precision cooling and power support for
+                data centers and healthcare buildings, dehumidification for
+                indoor pool environments, UV lighting and indoor air quality
+                solutions, and pre-fabricated custom solutions for
+                industrial-commercial rated HVAC and electrical markets.
+              </Typography>
+            </Grid>
+          </Box>
           <Box className={classes.brands}>
             <Grid item xs={5} style={{ textAlign: "center" }}>
               <Button
@@ -170,6 +199,30 @@ const Home = () => {
               </Typography>
             </Grid>
           </Box>
+          <Box className={classes.brands}>
+            <Grid item xs={5} style={{ textAlign: "center" }}>
+              <Button target="_blank" href="https://flexairinc.com/">
+                <img
+                  alt="flexair"
+                  src={flexair}
+                  className={classes.logo}
+                  style={{ width: "50%" }}
+                />
+              </Button>
+            </Grid>
+            <Grid item xs={5}>
+              <Typography className={classes.brandName} component="p">
+                FLEX AIR
+              </Typography>
+              <hr className={classes.divLine} style={{ float: "left" }} />
+              <br />
+              <br />
+              <Typography className={classes.brandDesc} component="p">
+                {" "}
+                - Pre-fabricated custom modular mechanical and electrical
+              </Typography>
+            </Grid>
+          </Box>
           <Box style={{ marginBottom: "2em" }}></Box>
           <Box
             className={classes.brands}
@@ -198,6 +251,9 @@ const Home = () => {
                 - Institutional
               </Typography>
               <br />
+              <br />
+              <br />
+              <br />
             </Grid>
             <Grid item xs={5}>
               <Typography className={classes.brandName} component="p">
@@ -223,10 +279,20 @@ const Home = () => {
                 {" "}
                 - Secure Technology Infrastructure
               </Typography>
+              <Typography className={classes.brandDesc} component="p">
+                {" "}
+                - UV Lighting
+              </Typography>
+              <Typography className={classes.brandDesc} component="p">
+                {" "}
+                - Pre-fabricated custom modular mechanical and electrical
+              </Typography>
             </Grid>
           </Box>
+          <Box style={{ marginBottom: "2em" }}></Box>
           <hr className={classes.divLine} style={{ marginTop: "1.5em" }} />
-          <Box
+          <Box style={{ marginBottom: "2em" }}></Box>
+          {/* <Box
             className={classes.brands}
             display="flex"
             flexDirection={width > 1350 ? "row" : "column"}
@@ -267,7 +333,7 @@ const Home = () => {
                 style={{ alignSelf: "left" }}
               />
             </Grid>
-          </Box>
+          </Box> */}
           <Box style={{ marginBottom: "1em" }}></Box>
         </Paper>
         <Footer />

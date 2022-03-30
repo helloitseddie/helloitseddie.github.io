@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Footer from "../components/footer";
 import GetWindow from "../components/getWindow";
 
-import background from "../assets/bgServices.png";
+import background from "../assets/bg.png";
 
 const useStyles = makeStyles((theme) => ({
   articleContainer: {
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 0,
   },
   divLineTitle: {
-    width: "100%",
+    width: "80%",
     color: theme.palette.common.blue,
     backgroundColor: theme.palette.common.blue,
     height: 1,
@@ -78,16 +78,15 @@ const Services = () => {
           style={{ width: articleWidth }}
         >
           <Box className={classes.servicesBox}>
-            <hr
-              className={classes.divLineTitle}
-              style={{ float: "left", marginTop: "2em" }}
-            />
-            <Grid item style={{ textAlign: "center" }}>
+            <Grid item style={{ textAlign: "center", marginTop: "2em" }}>
               <Typography className={classes.typeTitle} component="p">
                 Services We Offer
               </Typography>
             </Grid>
-            <hr className={classes.divLineTitle} style={{ float: "left" }} />
+            <hr
+              className={classes.divLineTitle}
+              style={{ float: "left", marginTop: "1em" }}
+            />
           </Box>
           <Box
             className={classes.servicesBox}
@@ -115,7 +114,7 @@ const Services = () => {
               </Typography>
               <Typography className={classes.type} component="p">
                 {" "}
-                - Power Stitching & Controls
+                - Power Switching & Controls
               </Typography>
               <Typography className={classes.type} component="p">
                 {" "}
@@ -129,17 +128,25 @@ const Services = () => {
             <Box style={{ marginBottom: "4em" }}></Box>
             <Grid item xs={5} style={{ textAlign: "center" }}>
               <Typography className={classes.typeSubTitle} component="p">
-                Dehumidification
+                Dehumidification and Humidification
               </Typography>
               <hr className={classes.divLine} style={{ float: "center" }} />
               <br />
+              <Typography className={classes.type} component="p">
+                {" "}
+                - Specialized natatorium dehumidification solutions
+              </Typography>
+              <Typography className={classes.type} component="p">
+                {" "}
+                - Specialized healthcare application humidification solutions
+              </Typography>
               <Typography className={classes.type} component="p">
                 {" "}
                 - Refrigeration-based dehumidifiers
               </Typography>
               <Typography className={classes.type} component="p">
                 {" "}
-                - Dedicated out-door infrastructure
+                - Dedicated out-door INFRASTRUCTURE
               </Typography>
               <Typography className={classes.type} component="p">
                 {" "}
@@ -149,8 +156,36 @@ const Services = () => {
                 {" "}
                 - Racks & Integrated Cabinets
               </Typography>
+            </Grid>
+          </Box>
+          <Box
+            className={classes.servicesBox}
+            style={{ textAlign: "center", alignItems: "center" }}
+            display="flex"
+            flexDirection={width > 850 ? "row" : "column"}
+          >
+            <Grid item xs={5} style={{ textAlign: "center" }}>
+              <Typography className={classes.typeSubTitle} component="p">
+                Indoor Air Quality
+              </Typography>
+              <hr className={classes.divLine} style={{ float: "center" }} />
               <br />
+              <Typography className={classes.type} component="p">
+                {" "}
+                - UV Lighting Integration and Technology
+              </Typography>
+            </Grid>
+            <Box style={{ marginBottom: "4em" }}></Box>
+            <Grid item xs={5} style={{ textAlign: "center" }}>
+              <Typography className={classes.typeSubTitle} component="p">
+                Prefabricated Custom Units
+              </Typography>
+              <hr className={classes.divLine} style={{ float: "center" }} />
               <br />
+              <Typography className={classes.type} component="p">
+                {" "}
+                - Custom modular mechanical and electrical
+              </Typography>
             </Grid>
           </Box>
         </Paper>

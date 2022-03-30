@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "transparent",
     },
-    width: "30vw",
+    width: "50vw",
   },
   tabContainer: {
     marginLeft: "auto",
@@ -84,7 +84,8 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Lato",
     textTransform: "none",
     fontSize: "1.5em",
-    color: theme.palette.common.gray,
+    color: "white",
+    whiteSpace: "pre-wrap",
   },
   menuOptions: {
     textAlign: "center",
@@ -344,13 +345,31 @@ const Header = ({ container }) => {
               </nav>
             )}
           </Toolbar>
-          <Paper variant="outlined">
-            <div
-              className={classes.serve}
-              style={{ textAlign: width < 1027 ? "center" : "" }}
-            >
-              Providing innovative computer room and power solutions to South
-              Florida for over 30 years!
+          <Paper variant="outlined" style={{ backgroundColor: "#005a98" }}>
+            <div>
+              <p
+                className={classes.serve}
+                style={{
+                  textAlign: width < 1027 ? "center" : "",
+                  margin: 0,
+                  marginTop: "1em",
+                  marginBottom: "1em",
+                }}
+              >
+                Providing innovative precision cooling, power, and humidity HVAC
+                solutions to South Florida since 1980!
+              </p>
+              {/* <p
+                className={classes.serve}
+                style={{
+                  textAlign: width < 1027 ? "center" : "",
+                  fontWeight: "bold",
+                  marginTop: 0,
+                  marginBottom: "1em",
+                }}
+              >
+                since 1980!
+              </p> */}
             </div>
           </Paper>
         </AppBar>

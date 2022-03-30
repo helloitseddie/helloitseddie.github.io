@@ -1,20 +1,20 @@
-import { createTheme } from '@material-ui/core/styles';
+import { createTheme } from "@material-ui/core/styles";
 
-const acBlue = "#3c5abe"
-const acGray= "#707070"
+const acBlue = "#005a98";
+const acGray = "#707070";
 
 export default createTheme({
   palette: {
     common: {
       blue: `${acBlue}`,
-      gray: `${acGray}`
+      gray: `${acGray}`,
     },
     primary: {
-      main: `${acBlue}`
+      main: `${acBlue}`,
     },
     secondary: {
-      main: "#FFFFFF"
-    }
+      main: "#FFFFFF",
+    },
   },
   typography: {
     tab: {
@@ -23,5 +23,5 @@ export default createTheme({
       fontWeight: 700,
       fontSize: "1em",
     },
-  }
-})
+  },
+});

@@ -16,7 +16,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 
 import emailjs from "emailjs-com";
 
-import background from "../assets/bgContact.png";
+import background from "../assets/bg.png";
 
 const useStyles = makeStyles((theme) => ({
   articleContainer: {
@@ -331,7 +331,7 @@ const Contact = () => {
                         required: true,
                       })}
                       className={classes.message}
-                      style={{ width: articleWidth }}
+                      style={{ width: articleWidth, fontFamily: "Lato" }}
                       placeholder="Message"
                     ></textarea>
                     <br />
