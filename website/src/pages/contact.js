@@ -199,6 +199,19 @@ const Contact = () => {
             </Typography>
             <br />
             <br />
+            <Typography className={classes.type} component="p">
+              Mauricio Dugand
+            </Typography>
+            <Typography
+              className={classes.type}
+              style={{ textDecoration: "none" }}
+              component="a"
+              href="mailto: mauricio@acengineering.com"
+            >
+              mauricio@acengineering.com
+            </Typography>
+            <br />
+            <br />
             <Typography
               className={classes.type}
               style={{ fontWeight: "bold" }}

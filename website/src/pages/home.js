@@ -1,22 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 import Footer from "../components/footer";
 import GetWindow from "../components/getWindow";
 
 import background from "../assets/bg.png";
-import liebert from "../assets/liebert.png";
-// import liebertg from "../assets/liebertg.png";
-import seresco from "../assets/seresco.png";
-// import serescog from "../assets/serescog.png";
-import fauv from "../assets/fauv.png";
-// import fauvg from "../assets/fauvg.png";
-import flexair from "../assets/flexair.png";
+
+import { getBrands } from "../actions/brandActions";
 
 const useStyles = makeStyles((theme) => ({
   articleContainer: {
@@ -79,15 +75,71 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const Brand = (brand) => {
+  const classes = useStyles();
+  return (
+    <>
+      <Box className={classes.brands}>
+        <Grid item xs={5} style={{ textAlign: "center" }}>
+          <Button target="_blank" href={brand.brand.url}>
+            <img
+              alt={brand.brand.brand}
+              src={brand.brand.logo.url}
+              className={classes.logo}
+            />
+          </Button>
+        </Grid>
+        <Grid item xs={5}>
+          <Typography className={classes.brandName} component="p">
+            {brand.brand.brand.toUpperCase()}
+          </Typography>
+          <hr className={classes.divLine} style={{ float: "left" }} />
+          <br />
+          <br />
+          {brand.brand.description.map((attr, index) => {
+            return (
+              <Typography
+                key={index}
+                className={classes.brandDesc}
+                component="p"
+              >
+                {" "}
+                - {attr}
+              </Typography>
+            );
+          })}
+        </Grid>
+      </Box>
+      <Box style={{ marginBottom: "2em" }}></Box>
+    </>
+  );
+};
+
 const Home = () => {
   const classes = useStyles();
   const { width } = GetWindow();
-  let textAlignmentLeft = width > 1350 ? "left" : "center";
-  let textAlignmentRight = width > 1350 ? "right" : "center";
   let articleWidth = width > 800 ? "75%" : "100%";
+  const [showSpinner, setShowSpinner] = useState(false);
+  const [brands, setBrands] = useState([]);
 
   useEffect(() => {
     document.body.style = `background-image: url("${background}")`;
+  }, []);
+
+  useEffect(() => {
+    const refreshBrands = async () => {
+      try {
+        setShowSpinner(true);
+        let response = await getBrands();
+        setBrands(response);
+        setShowSpinner(false);
+      } catch (error) {
+        console.error(error);
+        setShowSpinner(false);
+      }
+    };
+    if (brands === undefined || brands.length === 0) refreshBrands();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -101,6 +153,7 @@ const Home = () => {
           <Box style={{ marginBottom: "7em" }}></Box>
           <Box className={classes.aboutUsBox}>
             <hr className={classes.divLine} style={{ marginBottom: "1.5em" }} />
+            <Box style={{ marginBottom: "4em" }}></Box>
             <Grid item>
               <Typography className={classes.type} component="p">
                 AC Engineering Inc. has over 40 years of continuous sales and
@@ -117,113 +170,14 @@ const Home = () => {
               </Typography>
             </Grid>
           </Box>
-          <Box className={classes.brands}>
-            <Grid item xs={5} style={{ textAlign: "center" }}>
-              <Button
-                target="_blank"
-                href="https://www.vertiv.com/en-us/products/brands/liebert/"
-              >
-                <img alt="liebert" src={liebert} className={classes.logo} />
-              </Button>
-            </Grid>
-            <Grid item xs={5}>
-              <Typography className={classes.brandName} component="p">
-                LIEBERT
-              </Typography>
-              <hr className={classes.divLine} style={{ float: "left" }} />
-              <br />
-              <br />
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Precision AC units
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Uninterruptible Power System (UPS)
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Power Distribution Units
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Monitoring
-              </Typography>
-            </Grid>
-          </Box>
-          <Box style={{ marginBottom: "2em" }}></Box>
-          <Box className={classes.brands}>
-            <Grid item xs={5} style={{ textAlign: "center" }}>
-              <Button target="_blank" href="https://serescodehumidifiers.com/">
-                <img alt="seresco" src={seresco} className={classes.logo} />
-              </Button>
-            </Grid>
-            <Grid item xs={5}>
-              <Typography className={classes.brandName} component="p">
-                SERESCO
-              </Typography>
-              <hr className={classes.divLine} style={{ float: "left" }} />
-              <br />
-              <br />
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - 100% OA Units
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Natatorium Units
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Spa Units
-              </Typography>
-            </Grid>
-          </Box>
-          <Box style={{ marginBottom: "2em" }}></Box>
-          <Box className={classes.brands}>
-            <Grid item xs={5} style={{ textAlign: "center" }}>
-              <Button target="_blank" href="https://www.freshaireuv.com/">
-                <img alt="fauv" src={fauv} className={classes.logo} />
-              </Button>
-            </Grid>
-            <Grid item xs={5}>
-              <Typography className={classes.brandName} component="p">
-                FRESH-AIRE UV
-              </Typography>
-              <hr className={classes.divLine} style={{ float: "left" }} />
-              <br />
-              <br />
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - HVAC Ultraviolet Indoor System
-              </Typography>
-            </Grid>
-          </Box>
-          <Box className={classes.brands}>
-            <Grid item xs={5} style={{ textAlign: "center" }}>
-              <Button target="_blank" href="https://flexairinc.com/">
-                <img
-                  alt="flexair"
-                  src={flexair}
-                  className={classes.logo}
-                  style={{ width: "50%" }}
-                />
-              </Button>
-            </Grid>
-            <Grid item xs={5}>
-              <Typography className={classes.brandName} component="p">
-                FLEX AIR
-              </Typography>
-              <hr className={classes.divLine} style={{ float: "left" }} />
-              <br />
-              <br />
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Pre-fabricated custom modular mechanical and electrical
-              </Typography>
-            </Grid>
-          </Box>
-          <Box style={{ marginBottom: "2em" }}></Box>
+          <Box style={{ marginBottom: "8em" }}></Box>
+          {brands !== undefined &&
+            brands.length !== 0 &&
+            brands.map((brand, index) => {
+              return <Brand key={index} brand={brand} />;
+            })}
+          <Box style={{ marginBottom: "8em" }}></Box>
+          {showSpinner && <LinearProgress />}
           <Box
             className={classes.brands}
             style={{ textAlign: "center", alignItems: "center" }}
