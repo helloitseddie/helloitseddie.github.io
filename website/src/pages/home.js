@@ -27,13 +27,12 @@ const useStyles = makeStyles((theme) => ({
   },
   aboutUsBox: {
     marginTop: "5em",
-    marginRight: "2em",
-    marginLeft: "2em",
     marginBottom: "3em",
     justifyContent: "center",
     alignItems: "center",
     display: "flex",
     flexWrap: "wrap",
+    textAlign: "center",
   },
   brands: {
     margin: "auto",
@@ -73,13 +72,19 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.common.blue,
     height: 1,
   },
+  type: {
+    color: theme.palette.common.blue,
+    fontSize: "1.25em",
+    fontFamily: "Lato",
+    fontWeight: 100,
+  },
 }));
 
 const Brand = (brand) => {
   const classes = useStyles();
   return (
     <>
-      <Box className={classes.brands}>
+      <Box className={classes.brands} style={{ marginTop: "3em" }}>
         <Grid item xs={5} style={{ textAlign: "center" }}>
           <Button target="_blank" href={brand.brand.url}>
             <img
@@ -151,7 +156,13 @@ const Home = () => {
           style={{ width: articleWidth }}
         >
           <Box style={{ marginBottom: "7em" }}></Box>
-          <Box className={classes.aboutUsBox}>
+          <Box
+            className={classes.aboutUsBox}
+            style={{
+              marginRight: width > 800 ? "10em" : "3em",
+              marginLeft: width > 800 ? "10em" : "3em",
+            }}
+          >
             <hr className={classes.divLine} style={{ marginBottom: "1.5em" }} />
             <Box style={{ marginBottom: "4em" }}></Box>
             <Grid item>
@@ -169,15 +180,11 @@ const Home = () => {
                 industrial-commercial rated HVAC and electrical markets.
               </Typography>
             </Grid>
+            <hr
+              className={classes.divLine}
+              style={{ marginBottom: "1.5em", marginTop: "3em" }}
+            />
           </Box>
-          <Box style={{ marginBottom: "8em" }}></Box>
-          {brands !== undefined &&
-            brands.length !== 0 &&
-            brands.map((brand, index) => {
-              return <Brand key={index} brand={brand} />;
-            })}
-          <Box style={{ marginBottom: "8em" }}></Box>
-          {showSpinner && <LinearProgress />}
           <Box
             className={classes.brands}
             style={{ textAlign: "center", alignItems: "center" }}
@@ -242,7 +249,17 @@ const Home = () => {
                 - Pre-fabricated custom modular mechanical and electrical
               </Typography>
             </Grid>
+            <hr className={classes.divLine} style={{ marginTop: "3em" }} />
           </Box>
+          <Box style={{ marginBottom: "8em" }}></Box>
+          {brands !== undefined &&
+            brands.length !== 0 &&
+            brands.map((brand, index) => {
+              return <Brand key={index} brand={brand} />;
+            })}
+          <Box style={{ marginBottom: "8em" }}></Box>
+          {showSpinner && <LinearProgress />}
+
           <Box style={{ marginBottom: "2em" }}></Box>
           <hr className={classes.divLine} style={{ marginTop: "1.5em" }} />
           <Box style={{ marginBottom: "2em" }}></Box>

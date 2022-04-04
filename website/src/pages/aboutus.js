@@ -12,10 +12,6 @@ import Footer from "../components/footer";
 import GetWindow from "../components/getWindow";
 
 import background from "../assets/bg.png";
-import liebert from "../assets/liebert.png";
-import seresco from "../assets/seresco.png";
-import fauv from "../assets/fauv.png";
-import flexair from "../assets/flexair.png";
 
 import { getBrands } from "../actions/brandActions";
 
@@ -27,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     verticalAlign: "center",
   },
   aboutUsBox: {
-    marginTop: "5em",
+    marginTop: "3em",
     marginRight: "2em",
     marginLeft: "2em",
     marginBottom: "3em",
@@ -35,12 +31,13 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     display: "flex",
     flexWrap: "wrap",
+    textAlign: "center",
   },
   type: {
-    color: theme.palette.common.gray,
-    fontSize: "1em",
+    color: theme.palette.common.blue,
+    fontSize: "1.25em",
     fontFamily: "Lato",
-    fontWeight: 0,
+    fontWeight: 100,
   },
   typeTitle: {
     color: theme.palette.common.gray,
@@ -139,7 +136,13 @@ const AboutUs = () => {
           >
             <hr className={classes.divLine} style={{ float: "left" }} />
           </Box>
-          <Box className={classes.aboutUsBox}>
+          <Box
+            className={classes.aboutUsBox}
+            style={{
+              marginRight: width > 800 ? "10em" : "3em",
+              marginLeft: width > 800 ? "10em" : "3em",
+            }}
+          >
             <Grid item>
               <Typography className={classes.type} component="p">
                 AC Engineering Inc. has over 40 years of continuous sales and
@@ -174,6 +177,7 @@ const AboutUs = () => {
               </Typography>
             </Grid>
           </Box>
+          <Box style={{ marginBottom: "6em" }}></Box>
           {showSpinner && <LinearProgress />}
           {brands !== undefined &&
             brands.length !== 0 &&

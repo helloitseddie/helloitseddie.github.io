@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     display: "flex",
     flexWrap: "wrap",
+    textAlign: "center",
   },
   typeTitle: {
     color: theme.palette.common.gray,
@@ -150,11 +151,17 @@ const Contact = () => {
         >
           <hr className={classes.divLine} style={{ float: "left" }} />
         </Box>
-        <Box className={classes.servicesBox}>
+        <Box
+          className={classes.servicesBox}
+          style={{
+            marginRight: width > 800 ? "10em" : "3em",
+            marginLeft: width > 800 ? "10em" : "3em",
+          }}
+        >
           <Typography
             className={classes.type}
             component="p"
-            style={{ margin: "auto" }}
+            style={{ margin: "auto", fontWeight: 100, fontSize: "1.25em" }}
           >
             Thank you for your interest in AC Engineering, Inc. For more
             information, please contact us directly by completing the form or by
