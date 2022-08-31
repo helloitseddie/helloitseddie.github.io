@@ -181,19 +181,6 @@ const Contact = () => {
             style={{ textAlign: "center", margin: "auto", marginleft: "2em" }}
           >
             <Typography className={classes.type} component="p">
-              Joe E. Diaz, PE
-            </Typography>
-            <Typography
-              className={classes.type}
-              style={{ textDecoration: "none" }}
-              component="a"
-              href="mailto:jdiaz@acengineering.com"
-            >
-              jdiaz@acengineering.com
-            </Typography>
-            <br />
-            <br />
-            <Typography className={classes.type} component="p">
               J.R. Diaz
             </Typography>
             <Typography
@@ -203,6 +190,19 @@ const Contact = () => {
               href="mailto:jrdiaz@acengineering.com"
             >
               jrdiaz@acengineering.com
+            </Typography>
+            <br />
+            <br />
+            <Typography className={classes.type} component="p">
+              Joe E. Diaz, PE
+            </Typography>
+            <Typography
+              className={classes.type}
+              style={{ textDecoration: "none" }}
+              component="a"
+              href="mailto:jdiaz@acengineering.com"
+            >
+              jdiaz@acengineering.com
             </Typography>
             <br />
             <br />

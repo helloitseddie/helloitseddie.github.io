@@ -123,7 +123,7 @@ const Brand = (brand) => {
 const Home = () => {
   const classes = useStyles();
   const { width } = GetWindow();
-  let articleWidth = width > 800 ? "75%" : "100%";
+  let articleWidth = width > 1250 ? "75%" : "100%";
   const [showSpinner, setShowSpinner] = useState(false);
   const [brands, setBrands] = useState([]);
 
@@ -263,48 +263,7 @@ const Home = () => {
           <Box style={{ marginBottom: "2em" }}></Box>
           <hr className={classes.divLine} style={{ marginTop: "1.5em" }} />
           <Box style={{ marginBottom: "2em" }}></Box>
-          {/* <Box
-            className={classes.brands}
-            display="flex"
-            flexDirection={width > 1350 ? "row" : "column"}
-          >
-            <Grid
-              item
-              xs={width > 1200 ? 3 : 4}
-              style={{ textAlign: textAlignmentRight }}
-            >
-              <img
-                alt="liebertg"
-                src={liebertg}
-                className={classes.logog}
-                style={{ alignSelf: "right" }}
-              />
-            </Grid>
-            <Grid
-              item
-              xs={width > 1200 ? 3 : 4}
-              style={{ textAlign: "center" }}
-            >
-              <img
-                alt="fauvg"
-                src={fauvg}
-                className={classes.logog}
-                style={{ alignSelf: "center" }}
-              />
-            </Grid>
-            <Grid
-              item
-              xs={width > 1200 ? 3 : 4}
-              style={{ textAlign: textAlignmentLeft }}
-            >
-              <img
-                alt="serescog"
-                src={serescog}
-                className={classes.logog}
-                style={{ alignSelf: "left" }}
-              />
-            </Grid>
-          </Box> */}
+
           <Box style={{ marginBottom: "1em" }}></Box>
         </Paper>
         <Footer />

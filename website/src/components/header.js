@@ -10,6 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import { IconButton, Drawer, Hidden, Toolbar } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 
 import List from "@material-ui/core/List";
@@ -41,22 +42,13 @@ const useStyles = makeStyles((theme) => ({
     ...theme.mixins.toolbar,
     marginBottom: "2em",
   },
-  logo: {
-    height: "25%",
-  },
   logoContainer: {
-    marginLeft: "1em",
     marginTop: "1.5em",
     marginBottom: "1em",
     display: "flex",
     "&:hover": {
       backgroundColor: "transparent",
     },
-    width: "50vw",
-  },
-  tabContainer: {
-    marginLeft: "auto",
-    marginRight: "4em",
   },
   tab: {
     ...theme.typography.tab,
@@ -87,11 +79,23 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     whiteSpace: "pre-wrap",
   },
+  menuTitle: {
+    textAlign: "center",
+    fontSize: "2rem",
+    fontWeight: "bold",
+    marginBottom: "5vh",
+    color: theme.palette.common.blue,
+  },
   menuOptions: {
     textAlign: "center",
+    width: "50vw",
   },
   menuText: {
     fontFamily: "Lato",
+    "& span, & svg": {
+      fontSize: "1.5rem",
+      fontWeight: "bold",
+    },
     color: theme.palette.common.gray,
   },
   icons: {
@@ -103,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
     width: "2rem",
   },
   divLine: {
-    width: "75%",
+    width: "40vw",
     color: theme.palette.common.gray,
     backgroundColor: theme.palette.common.gray,
     height: 1,
@@ -117,8 +121,14 @@ const Header = ({ container }) => {
   const [value, setValue] = useState(0);
   const { width } = GetWindow();
   const [displayMenu, setDisplay] = useState(false);
-  let onMobile = width > 1200 ? false : true;
-  let logoWidth = width > 1200 ? "40%" : "60%";
+  let onMobile = width > 1250 ? false : true;
+  let logoWidth = onMobile ? "80%" : "100%";
+  let logoContainerDem = onMobile
+    ? { width: "50vw", height: "15vh" }
+    : {
+        width: "25vw",
+        height: "15vh",
+      };
   const history = useNavigate();
 
   const handleDrawerToggle = () => {
@@ -141,7 +151,7 @@ const Header = ({ container }) => {
           setValue(1);
         }
         break;
-      case "/services":
+      case "/products":
         if (value !== 2) {
           setValue(2);
         }
@@ -166,7 +176,7 @@ const Header = ({ container }) => {
     <React.Fragment>
       <ElevationScroll>
         <AppBar position="fixed" color="secondary">
-          <Toolbar disableGutters>
+          <Toolbar style={{ justifyContent: "center" }}>
             <Paper elevation={0}>
               <Button
                 component={Link}
@@ -174,11 +184,11 @@ const Header = ({ container }) => {
                 disableRipple
                 onClick={() => setValue(0)}
                 className={classes.logoContainer}
+                style={logoContainerDem}
               >
                 <img
                   alt="company logo"
                   src={logo}
-                  className={classes.logo}
                   style={{ width: logoWidth }}
                 />
               </Button>
@@ -188,7 +198,6 @@ const Header = ({ container }) => {
                 value={value}
                 onChange={handleChange}
                 indicatorColor="primary"
-                className={classes.tabContainer}
               >
                 <Tab
                   className={classes.tab}
@@ -205,8 +214,8 @@ const Header = ({ container }) => {
                 <Tab
                   className={classes.tab}
                   component={Link}
-                  to="/services"
-                  label="Services"
+                  to="/products"
+                  label="Products"
                 />
                 <Tab
                   className={classes.tab}
@@ -249,6 +258,21 @@ const Header = ({ container }) => {
                       <Box m={3}>
                         <Grid container spacing={2} justifyContent="flex-end">
                           <Grid item>
+                            <Button
+                              component={Link}
+                              to="/"
+                              disableRipple
+                              onClick={() =>
+                                /*setValue(0), */ setDisplay(!displayMenu)
+                              }
+                              style={{ width: "35vw", marginRight: "06vw" }}
+                            >
+                              <img
+                                alt="company logo"
+                                src={logo}
+                                style={{ width: logoWidth }}
+                              />
+                            </Button>
                             <IconButton
                               onClick={() => setDisplay(!displayMenu)}
                             >
@@ -259,7 +283,11 @@ const Header = ({ container }) => {
                           </Grid>
                         </Grid>
                       </Box>
-                      <List>
+                      <List style={{ marginTop: "10vh" }}>
+                        <Typography className={classes.menuTitle} component="p">
+                          Navigate To
+                        </Typography>
+                        <hr className={classes.divLine} />
                         <Link to={"/"} style={{ textDecoration: "none" }}>
                           <ListItem
                             button
@@ -269,7 +297,7 @@ const Header = ({ container }) => {
                           >
                             <ListItemText
                               className={classes.menuText}
-                              primary={"Home"}
+                              primary="Home"
                             />
                           </ListItem>
                         </Link>
@@ -282,25 +310,25 @@ const Header = ({ container }) => {
                             className={classes.menuOptions}
                           >
                             <ListItemText
-                              primary={"About Us"}
                               className={classes.menuText}
+                              primary="About Us"
                             />
                           </ListItem>
                         </Link>
                         <hr className={classes.divLine} />
                         <Link
-                          to={"/services"}
+                          to={"/products"}
                           style={{ textDecoration: "none" }}
                         >
                           <ListItem
                             button
-                            key="services"
+                            key="products"
                             onClick={() => setDisplay(!displayMenu)}
                             className={classes.menuOptions}
                           >
                             <ListItemText
-                              primary={"Services"}
                               className={classes.menuText}
+                              primary="Products"
                             />
                           </ListItem>
                         </Link>
@@ -316,8 +344,8 @@ const Header = ({ container }) => {
                             className={classes.menuOptions}
                           >
                             <ListItemText
-                              primary={"Clients"}
                               className={classes.menuText}
+                              primary="Clients"
                             />
                           </ListItem>
                         </Link>
@@ -333,11 +361,12 @@ const Header = ({ container }) => {
                             className={classes.menuOptions}
                           >
                             <ListItemText
-                              primary={"Contact Us"}
                               className={classes.menuText}
+                              primary="Contact Us"
                             />
                           </ListItem>
                         </Link>
+                        <hr className={classes.divLine} />
                       </List>
                     </Box>
                   </Drawer>
@@ -359,17 +388,7 @@ const Header = ({ container }) => {
                 Providing innovative precision cooling, power, and humidity HVAC
                 solutions to South Florida since 1980!
               </p>
-              {/* <p
-                className={classes.serve}
-                style={{
-                  textAlign: width < 1027 ? "center" : "",
-                  fontWeight: "bold",
-                  marginTop: 0,
-                  marginBottom: "1em",
-                }}
-              >
-                since 1980!
-              </p> */}
+              {}
             </div>
           </Paper>
         </AppBar>

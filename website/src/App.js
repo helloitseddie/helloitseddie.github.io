@@ -5,7 +5,7 @@ import theme from "./theme";
 import Header from "./components/header";
 import Home from "./pages/home";
 import AboutUs from "./pages/aboutus";
-import Services from "./pages/services";
+import Products from "./pages/products";
 import Clients from "./pages/clients";
 import Contact from "./pages/contact";
 import NotFound from "./pages/notFound";
@@ -21,7 +21,7 @@ const App = (props) => {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/about" element={<AboutUs />} />
-          <Route exact path="/services" element={<Services />} />
+          <Route exact path="/products" element={<Products />} />
           <Route exact path="/clients" element={<Clients />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

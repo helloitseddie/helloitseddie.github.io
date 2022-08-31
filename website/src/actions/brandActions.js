@@ -24,7 +24,7 @@ export const getBrands = async () => {
     const response = await axios.post(
       `${process.env.REACT_APP_CONTENTFUL_URL}`,
       { query: query }
-    );
+    );;
     return response.data.data.brandsCollection.items;
   } catch (error) {
     console.error(error);
