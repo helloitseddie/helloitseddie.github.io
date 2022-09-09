@@ -10,9 +10,13 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import Footer from "../components/footer";
 import GetWindow from "../components/getWindow";
 
+import SimpleImageSlider from "react-simple-image-slider";
+// import styles from "../components/imageRevolver.css";
+
 import background from "../assets/bg.png";
 
 import { getBrands } from "../actions/brandActions";
+import { getImages } from "../actions/homeActions";
 
 const useStyles = makeStyles((theme) => ({
   articleContainer: {
@@ -126,10 +130,13 @@ const Home = () => {
   let articleWidth = width > 1250 ? "75%" : "100%";
   const [showSpinner, setShowSpinner] = useState(false);
   const [brands, setBrands] = useState([]);
+  const [homeImages, setHomeImages] = useState([]);
 
   useEffect(() => {
     document.body.style = `background-image: url("${background}")`;
   }, []);
+
+  console.log(articleWidth);
 
   useEffect(() => {
     const refreshBrands = async () => {
@@ -137,6 +144,8 @@ const Home = () => {
         setShowSpinner(true);
         let response = await getBrands();
         setBrands(response);
+        let revolverImages = await getImages();
+        setHomeImages(revolverImages);
         setShowSpinner(false);
       } catch (error) {
         console.error(error);
@@ -147,6 +156,21 @@ const Home = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const images = [
+    {
+      url: "https://www.vertiv.com/49bb4e/globalassets/images/on-page-image/800x600/cp-ups-na-800x600-266778-vertiv-hpl.jpg",
+    },
+    {
+      url: "https://serescodehumidifiers.com/wp-content/uploads/2018/10/seresco_new-ne-series.jpg",
+    },
+    {
+      url: "https://www.freshaireuv.com/wp-content/uploads/2019/06/Blue-Tube-in-AHU.jpg",
+    },
+    {
+      url: "https://flexairinc.com/wp-content/uploads/2019/04/pressman2-181139911.jpg",
+    },
+  ];
+
   return (
     <>
       <Grid container spacing={2} alignItems="stretch" justifyContent="center">
@@ -155,8 +179,20 @@ const Home = () => {
           className={classes.articleContainer}
           style={{ width: articleWidth }}
         >
-          <Box style={{ marginBottom: "7em" }}></Box>
-          <Box
+          <Box style={{ marginBottom: "8em" }}></Box>
+          {homeImages !== undefined && homeImages.length !== 0 && (
+            <SimpleImageSlider
+              width={articleWidth}
+              height={500}
+              images={homeImages}
+              showBullets={false}
+              showNavs={true}
+              autoPlay={true}
+              autoPlayDelay={5}
+              className={classes.imageRevolver}
+            />
+          )}
+          {/* <Box
             className={classes.aboutUsBox}
             style={{
               marginRight: width > 800 ? "10em" : "3em",
@@ -250,7 +286,7 @@ const Home = () => {
               </Typography>
             </Grid>
             <hr className={classes.divLine} style={{ marginTop: "3em" }} />
-          </Box>
+          </Box> */}
           <Box style={{ marginBottom: "8em" }}></Box>
           {brands !== undefined &&
             brands.length !== 0 &&
