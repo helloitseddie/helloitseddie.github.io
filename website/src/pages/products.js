@@ -39,19 +39,19 @@ const useStyles = makeStyles((theme) => ({
   typeTitle: {
     color: theme.palette.common.gray,
     fontSize: "3em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 500,
   },
   typeSubTitle: {
     color: theme.palette.common.gray,
     fontSize: "1.5em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 500,
   },
   type: {
     color: theme.palette.common.gray,
     fontSize: "1em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 0,
   },
   divLineTitle: {
@@ -77,13 +77,13 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.blue,
     margin: "auto",
     fontSize: "2em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 0,
   },
   brandDesc: {
     color: theme.palette.common.gray,
     fontSize: "1em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 0,
     margin: "auto",
   },
@@ -132,7 +132,7 @@ const Brand = (brand) => {
 const Services = () => {
   const classes = useStyles();
   const { width } = GetWindow();
-  let articleWidth = width > 800 ? "75%" : "100%";
+  let articleWidth = width > 1000 ? "75%" : "100%";
   const [showSpinner, setShowSpinner] = useState(false);
   const [brands, setBrands] = useState([]);
 

@@ -3,18 +3,16 @@ import axios from "axios";
 export const getClients = async () => {
   const query = `
     query {
-  clientsCollection {
+  clientGroupsCollection {
     items {
-      client
-      logo {
-        title
-        description
-        contentType
-        fileName
-        size
-        url
-        width
-        height
+      category
+      clientsCollection(limit:25) {
+        items {
+          client
+          logo {
+            url
+          }
+        }
       }
     }
   }
@@ -25,7 +23,7 @@ export const getClients = async () => {
       `${process.env.REACT_APP_CONTENTFUL_URL}`,
       { query: query }
     );
-    return response.data.data.clientsCollection.items;
+    return response.data.data.clientGroupsCollection.items;
   } catch (error) {
     console.error(error);
     throw error;

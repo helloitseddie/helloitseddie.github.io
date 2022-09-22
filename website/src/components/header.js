@@ -22,7 +22,7 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 
 import GetWindow from "./getWindow";
 
-import logo from "../assets/newLogo.png";
+import logo from "../assets/newLogoBig.png";
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "2em",
   },
   logoContainer: {
+    // backgroundColor: "#f1f1f1",
     marginTop: "1.5em",
     marginBottom: "1em",
     display: "flex",
@@ -55,6 +56,12 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.gray,
     minWidth: 10,
     marginLeft: "25px",
+  },
+  newTab: {
+    ...theme.typography.tab,
+    color: theme.palette.common.white,
+    minWidth: "1vw",
+    marginRight: "2vw",
   },
   menu: {
     backgroundColor: theme.palette.common.blue,
@@ -73,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     margin: "1em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     textTransform: "none",
     fontSize: "1.5em",
     color: "white",
@@ -91,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
     width: "50vw",
   },
   menuText: {
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     "& span, & svg": {
       fontSize: "1.5rem",
       fontWeight: "bold",
@@ -121,7 +128,7 @@ const Header = ({ container }) => {
   const [value, setValue] = useState(0);
   const { width } = GetWindow();
   const [displayMenu, setDisplay] = useState(false);
-  let onMobile = width > 1250 ? false : true;
+  let onMobile = width > 1000 ? false : true;
   let logoWidth = onMobile ? "80%" : "100%";
   let logoContainerDem = onMobile
     ? { width: "50vw", height: "15vh" }
@@ -176,8 +183,13 @@ const Header = ({ container }) => {
     <React.Fragment>
       <ElevationScroll>
         <AppBar position="fixed" color="secondary">
-          <Toolbar style={{ justifyContent: "center" }}>
-            <Paper elevation={0}>
+          <Toolbar
+            style={{
+              justifyContent: "center",
+              backgroundColor: "#f1f1f1",
+            }}
+          >
+            <Paper elevation={0} style={{ backgroundColor: "#f1f1f1" }}>
               <Button
                 component={Link}
                 to="/"
@@ -193,45 +205,58 @@ const Header = ({ container }) => {
                 />
               </Button>
             </Paper>
-            {!onMobile && (
-              <Tabs
-                value={value}
-                onChange={handleChange}
-                indicatorColor="primary"
-              >
-                <Tab
-                  className={classes.tab}
-                  component={Link}
-                  to="/"
-                  label="Home"
-                />
-                <Tab
-                  className={classes.tab}
-                  component={Link}
-                  to="/about"
-                  label="About Us"
-                />
-                <Tab
-                  className={classes.tab}
-                  component={Link}
-                  to="/products"
-                  label="Products"
-                />
-                <Tab
-                  className={classes.tab}
-                  component={Link}
-                  to="/clients"
-                  label="Clients"
-                />
-                <Tab
-                  className={classes.tab}
-                  component={Link}
-                  to="/contact"
-                  label="Contact Us"
-                />
-              </Tabs>
-            )}
-            {onMobile && (
+          </Toolbar>
+          <Paper
+            variant="outlined"
+            style={{
+              backgroundColor: "#005a98",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              indicatorColor="primary"
+            >
+              <Tab
+                className={classes.newTab}
+                style={{ fontSize: onMobile ? "3vw" : "1vw" }}
+                component={Link}
+                to="/"
+                label="Home"
+              />
+              <Tab
+                className={classes.newTab}
+                style={{ fontSize: onMobile ? "3vw" : "1vw" }}
+                component={Link}
+                to="/about"
+                label="About Us"
+              />
+              <Tab
+                className={classes.newTab}
+                style={{ fontSize: onMobile ? "3vw" : "1vw" }}
+                component={Link}
+                to="/products"
+                label="Products"
+              />
+              <Tab
+                className={classes.newTab}
+                style={{ fontSize: onMobile ? "3vw" : "1vw" }}
+                component={Link}
+                to="/clients"
+                label="Clients"
+              />
+              <Tab
+                className={classes.newTab}
+                style={{ fontSize: onMobile ? "3vw" : "1vw" }}
+                component={Link}
+                to="/contact"
+                label="Contact Us"
+              />
+            </Tabs>
+            {/* {onMobile && (
               <IconButton
                 onClick={() => {
                   setDisplay(!displayMenu);
@@ -240,8 +265,8 @@ const Header = ({ container }) => {
               >
                 <FaBars className={classes.icons} />
               </IconButton>
-            )}
-            {onMobile && (
+            )} */}
+            {/* {onMobile && (
               <nav aria-label="mailbox folders">
                 <Hidden xsDown implementation="css">
                   <Drawer
@@ -263,7 +288,7 @@ const Header = ({ container }) => {
                               to="/"
                               disableRipple
                               onClick={() =>
-                                /*setValue(0), */ setDisplay(!displayMenu)
+                               setDisplay(!displayMenu)
                               }
                               style={{ width: "35vw", marginRight: "06vw" }}
                             >
@@ -372,10 +397,8 @@ const Header = ({ container }) => {
                   </Drawer>
                 </Hidden>
               </nav>
-            )}
-          </Toolbar>
-          <Paper variant="outlined" style={{ backgroundColor: "#005a98" }}>
-            <div>
+            )} */}
+            {/* <div>
               <p
                 className={classes.serve}
                 style={{
@@ -388,8 +411,7 @@ const Header = ({ container }) => {
                 Providing innovative precision cooling, power, and humidity HVAC
                 solutions to South Florida since 1980!
               </p>
-              {}
-            </div>
+            </div> */}
           </Paper>
         </AppBar>
       </ElevationScroll>

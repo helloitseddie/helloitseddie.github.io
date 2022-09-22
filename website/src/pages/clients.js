@@ -33,19 +33,19 @@ const useStyles = makeStyles((theme) => ({
   typeTitle: {
     color: theme.palette.common.gray,
     fontSize: "2em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 500,
   },
   typeSubTitle: {
     color: theme.palette.common.gray,
     fontSize: "1.5em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 500,
   },
   type: {
     color: theme.palette.common.gray,
     fontSize: "1em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 0,
   },
   divLine: {
@@ -54,6 +54,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.common.blue,
     height: 1,
     marginBottom: "2em",
+  },
+  clientGroup: {
+    margin: "auto",
+    display: "flex",
+    flexWrap: "wrap",
   },
 }));
 
@@ -77,14 +82,44 @@ const Client = (client) => {
   );
 };
 
+const ClientGroup = (clientGroup) => {
+  const classes = useStyles();
+  const clients = clientGroup.clientGroup.clientsCollection.items;
+  console.log(clients);
+  return (
+    <>
+      <Box
+        className={classes.clientGroup}
+        style={{ marginTop: "3em", marginLeft: "3em" }}
+      >
+        <Typography className={classes.typeSubTitle} component="p">
+          {clientGroup.clientGroup.category}
+        </Typography>
+      </Box>
+      <hr
+        className={classes.divLine}
+        style={{ float: "left", marginLeft: "3em", width: "30%" }}
+      />
+      <Box
+        className={classes.clientGroup}
+        style={{ marginTop: "3em", marginLeft: "3em" }}
+      >
+        {clients.map((client, index) => {
+          return <Client key={index} client={client} />;
+        })}
+      </Box>
+    </>
+  );
+};
+
 const Clients = () => {
   const classes = useStyles();
   const { width } = GetWindow();
-  let articleWidth = width > 800 ? "75%" : "100%";
-  let topMargin = width > 800 ? "10vh" : "12vh";
+  let articleWidth = width > 1000 ? "75%" : "100%";
+  let topMargin = width > 1000 ? "10vh" : "12vh";
 
   const [showSpinner, setShowSpinner] = useState(false);
-  const [clients, setClients] = useState([]);
+  const [clientGroups, setClientGroups] = useState([]);
 
   useEffect(() => {
     document.body.style = `background-image: url("${background}")`;
@@ -96,14 +131,15 @@ const Clients = () => {
         setShowSpinner(true);
         let response = await getClients();
 
-        setClients(response);
+        setClientGroups(response);
         setShowSpinner(false);
       } catch (error) {
         console.error(error);
         setShowSpinner(false);
       }
     };
-    if (clients === undefined || clients.length === 0) refreshClients();
+    if (clientGroups === undefined || clientGroups.length === 0)
+      refreshClients();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -135,20 +171,11 @@ const Clients = () => {
 
           {showSpinner && <LinearProgress />}
 
-          <Box
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-              display: "flex",
-              flexWrap: "wrap",
-            }}
-          >
-            {clients !== undefined &&
-              clients.length !== 0 &&
-              clients.map((client, index) => {
-                return <Client key={index} client={client} />;
-              })}
-          </Box>
+          {clientGroups !== undefined &&
+            clientGroups.length !== 0 &&
+            clientGroups.map((clientGroup, index) => {
+              return <ClientGroup key={index} clientGroup={clientGroup} />;
+            })}
           <Box className={classes.servicesBox}></Box>
           <Box className={classes.servicesBox}></Box>
         </Paper>

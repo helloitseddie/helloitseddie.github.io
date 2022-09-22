@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "3em",
     marginRight: "2em",
     marginLeft: "2em",
-    marginBottom: "3em",
     justifyContent: "center",
     alignItems: "center",
     display: "flex",
@@ -36,13 +35,13 @@ const useStyles = makeStyles((theme) => ({
   type: {
     color: theme.palette.common.blue,
     fontSize: "1.25em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 100,
   },
   typeTitle: {
     color: theme.palette.common.gray,
-    fontSize: "2em",
-    fontFamily: "Lato",
+    fontSize: "3em",
+    fontFamily: "Arial",
     fontWeight: 500,
     marginTop: "0.5em",
   },
@@ -86,7 +85,7 @@ const Brand = (brand) => {
 const AboutUs = () => {
   const classes = useStyles();
   const { width } = GetWindow();
-  let articleWidth = width > 800 ? "75%" : "100%";
+  let articleWidth = width > 1000 ? "75%" : "100%";
   const [showSpinner, setShowSpinner] = useState(false);
   const [brands, setBrands] = useState([]);
 

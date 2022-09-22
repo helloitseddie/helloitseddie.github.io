@@ -18,7 +18,7 @@ export default createTheme({
   },
   typography: {
     tab: {
-      fontFamily: "Lato",
+      fontFamily: "Arial",
       textTransform: "none",
       fontWeight: 700,
       fontSize: "1em",

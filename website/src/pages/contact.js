@@ -39,14 +39,14 @@ const useStyles = makeStyles((theme) => ({
   typeTitle: {
     color: theme.palette.common.gray,
     fontSize: "2em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 500,
     marginTop: "1em",
   },
   type: {
     color: theme.palette.common.gray,
     fontSize: "1em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 0,
   },
   divLine: {
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
   inputTitle: {
     fontWeight: "bold",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     marginTop: "1em",
   },
   formInput: {
@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
   },
   submitButt: {
     color: "white",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     marginTop: "1em",
     backgroundColor: theme.palette.common.blue,
   },
@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
 const Contact = () => {
   const classes = useStyles();
   const { width } = GetWindow();
-  let articleWidth = width > 800 ? "75%" : "100%";
+  let articleWidth = width > 1000 ? "75%" : "100%";
 
   const {
     register,
@@ -154,8 +154,8 @@ const Contact = () => {
         <Box
           className={classes.servicesBox}
           style={{
-            marginRight: width > 800 ? "10em" : "3em",
-            marginLeft: width > 800 ? "10em" : "3em",
+            marginRight: width > 1000 ? "10em" : "3em",
+            marginLeft: width > 1000 ? "10em" : "3em",
           }}
         >
           <Typography
@@ -351,7 +351,7 @@ const Contact = () => {
                         required: true,
                       })}
                       className={classes.message}
-                      style={{ width: articleWidth, fontFamily: "Lato" }}
+                      style={{ width: articleWidth, fontFamily: "Arial" }}
                       placeholder="Message"
                     ></textarea>
                     <br />

@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     color: "white",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontSize: "1em",
     margin: 0,
   },
@@ -92,10 +92,10 @@ export default function Footer(props) {
           <Typography
             className={classes.text}
             component={Link}
-            to="/services"
+            to="/products"
             style={{ textDecoration: "none" }}
           >
-            Services |{" "}
+            Products |{" "}
           </Typography>
           <Typography
             className={classes.text}

@@ -32,19 +32,19 @@ const useStyles = makeStyles((theme) => ({
   typeTitle: {
     color: theme.palette.common.gray,
     fontSize: "3em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 500,
   },
   typeSubTitle: {
     color: theme.palette.common.gray,
     fontSize: "1.5em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 500,
   },
   type: {
     color: theme.palette.common.gray,
     fontSize: "1.5em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 0,
   },
   divLineTitle: {

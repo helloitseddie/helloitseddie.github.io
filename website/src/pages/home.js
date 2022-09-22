@@ -38,6 +38,12 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     textAlign: "center",
   },
+  type: {
+    color: theme.palette.common.blue,
+    fontSize: "3em",
+    fontFamily: "Arial",
+    fontWeight: "bold",
+  },
   brands: {
     margin: "auto",
     justifyContent: "center",
@@ -49,13 +55,13 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.blue,
     margin: "auto",
     fontSize: "2em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 0,
   },
   brandDesc: {
     color: theme.palette.common.gray,
     fontSize: "1em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 0,
     margin: "auto",
   },
@@ -79,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
   type: {
     color: theme.palette.common.blue,
     fontSize: "1.25em",
-    fontFamily: "Lato",
+    fontFamily: "Arial",
     fontWeight: 100,
   },
 }));
@@ -127,7 +133,7 @@ const Brand = (brand) => {
 const Home = () => {
   const classes = useStyles();
   const { width } = GetWindow();
-  let articleWidth = width > 1250 ? "75%" : "100%";
+  let articleWidth = width > 1000 ? "75%" : "100%";
   const [showSpinner, setShowSpinner] = useState(false);
   const [brands, setBrands] = useState([]);
   const [homeImages, setHomeImages] = useState([]);
@@ -179,7 +185,7 @@ const Home = () => {
           className={classes.articleContainer}
           style={{ width: articleWidth }}
         >
-          <Box style={{ marginBottom: "8em" }}></Box>
+          <Box style={{ marginBottom: "5vh" }}></Box>
           {homeImages !== undefined && homeImages.length !== 0 && (
             <SimpleImageSlider
               width={articleWidth}
@@ -192,101 +198,19 @@ const Home = () => {
               className={classes.imageRevolver}
             />
           )}
-          {/* <Box
-            className={classes.aboutUsBox}
-            style={{
-              marginRight: width > 800 ? "10em" : "3em",
-              marginLeft: width > 800 ? "10em" : "3em",
-            }}
-          >
-            <hr className={classes.divLine} style={{ marginBottom: "1.5em" }} />
-            <Box style={{ marginBottom: "4em" }}></Box>
-            <Grid item>
-              <Typography className={classes.type} component="p">
-                AC Engineering Inc. has over 40 years of continuous sales and
-                design experience in South Florida involving critical
-                application and solutions for commercial and residential
-                buildings. Our talented sales engineers work closely with
-                engineers, contractors, and other professionals in the selection
-                and application of HVAC solutions for mission critical
-                applications involving precision cooling and power support for
-                data centers and healthcare buildings, dehumidification for
-                indoor pool environments, UV lighting and indoor air quality
-                solutions, and pre-fabricated custom solutions for
-                industrial-commercial rated HVAC and electrical markets.
-              </Typography>
-            </Grid>
-            <hr
-              className={classes.divLine}
-              style={{ marginBottom: "1.5em", marginTop: "3em" }}
-            />
-          </Box>
-          <Box
-            className={classes.brands}
-            style={{ textAlign: "center", alignItems: "center" }}
-            display="flex"
-            flexDirection={width > 850 ? "row" : "column"}
-          >
-            <Grid item xs={5}>
-              <Typography className={classes.brandName} component="p">
-                SOLUTIONS FOR:{" "}
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Residential
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Commercial
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Industrial
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Institutional
-              </Typography>
-              <br />
-              <br />
-              <br />
-              <br />
-            </Grid>
-            <Grid item xs={5}>
-              <Typography className={classes.brandName} component="p">
-                SPECIALIZING IN:{" "}
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Precision Cooling
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Dehumidification
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Power
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Racks & Cabinets
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Secure Technology Infrastructure
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - UV Lighting
-              </Typography>
-              <Typography className={classes.brandDesc} component="p">
-                {" "}
-                - Pre-fabricated custom modular mechanical and electrical
-              </Typography>
-            </Grid>
-            <hr className={classes.divLine} style={{ marginTop: "3em" }} />
-          </Box> */}
+          <div>
+            <p
+              className={classes.brandName}
+              style={{
+                textAlign: "center",
+                margin: 0,
+                marginTop: "10vh",
+              }}
+            >
+              Representing innovative HVAC and power brands since 1980
+            </p>
+          </div>
+          <hr className={classes.divLine} style={{ marginTop: "1.5em" }} />
           <Box style={{ marginBottom: "8em" }}></Box>
           {brands !== undefined &&
             brands.length !== 0 &&
