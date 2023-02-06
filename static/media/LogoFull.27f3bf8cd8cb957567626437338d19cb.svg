@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5" version="1.1" viewBox="0 0 425 150" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+    <g transform="matrix(.36364 0 0 .34722 130.09 20.139)">
+        <ellipse cx="167.5" cy="158" rx="137.5" ry="144" fill="#fff" stroke="#fff" stroke-width="2.81px"/>
+    </g>
+    <g transform="matrix(.32946 0 0 .32946 151.15 51.751)">
+        <text y="131px" font-family="'AmericanTypewriter', 'American Typewriter', serif" font-size="181.49px">EB</text>
+    </g>
+    <g transform="matrix(.32946 0 0 .32946 5.1478 47.752)">
+        <text y="131px" fill="white" font-family="'AmericanTypewriter', 'American Typewriter', serif" font-size="145.69px">Eddie</text>
+    </g>
+    <g transform="matrix(.32946 0 0 .32946 247.09 47.752)">
+        <text y="131px" fill="white" font-family="'AmericanTypewriter', 'American Typewriter', serif" font-size="145.69px">Briscoe</text>
+    </g>
+</svg>
+
